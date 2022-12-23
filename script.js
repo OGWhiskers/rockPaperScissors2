@@ -47,8 +47,13 @@ if ((playerSelection === 'rock') && (computerChoice=== 'scissors')) {
 } else if ((playerSelection === 'paper') && (computerChoice === 'scissor')) {
     return 'You lose. Scissor beats Paper!'
 
+} else if (playerSelection === computerChoice) {
+    return 'Its a draw!!!'
+    
 } else {
-    return 'whats wrong'
+    return 'Something went wrong. Did you type a proper input?'
 }
     
 }
+
+console.log(decideWinner());
