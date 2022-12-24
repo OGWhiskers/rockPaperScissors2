@@ -20,15 +20,75 @@ function getPlayerSelection() {
 
 
 
-function decideWinner(playerSelection, computerChoice) {
+function rpsRound(playerSelection, computerChoice) {
 
     computerChoice = getComputerChoice() ;
     playerSelection = getPlayerSelection();
     
-    console.log(playerSelection);
-    console.log(computerChoice);
+    // console.log(playerSelection);
+    // console.log(computerChoice);
 
+    function decideWinner(){
+
+        let winner = '';
+
+        if((playerSelection === 'rock') && (computerChoice=== 'scissors')){
+            winner = 'Player';
+
+        } else if ((playerSelection === 'paper') && (computerChoice === 'rock')) {
+            winner = 'Player'
+
+        } else if ((playerSelection === 'scissors') && (computerChoice === 'paper')) {
+            winner = 'Player'
+
+        } else if ((playerSelection === 'scissors') && (computerChoice === 'rock')) {
+            winner = 'CPU';
+
+        } else if ((playerSelection === 'rock') && (computerChoice === 'paper')) {
+            winner = 'CPU';
+
+        } else if ((playerSelection === 'paper') && (computerChoice === 'scissor')) {
+            winner = 'CPU';
+
+        } else if (playerSelection === computerChoice) {
+            winner = ''
+        }
+
+            
+        return winner;
+    };
+
+
+
+decideWinner();
+
+
+
+    function addScore(){
+
+        let cpuScore = 0;
+        let playerScore= 0;
+        let win = decideWinner();
+        
+        console.log(win);
+
+        if  (win === 'CPU'){     
+
+            console.log(`The Computers Score is: ${cpuScore += 1}`); 
+            return `The Computers Score is: ${cpuScore += 1}`
+
+        } else if (win === 'Player'){
+
+            console.log(`The Computers Score is: ${playerScore += 1}`);
+            return `The Computers Score is: ${playerScore += 1}`
+            
+        } 
+
+    }
+addScore();
     
+
+
 if ((playerSelection === 'rock') && (computerChoice=== 'scissors')) {
     return 'You win. Rock beats Scissors!'
     
@@ -53,7 +113,7 @@ if ((playerSelection === 'rock') && (computerChoice=== 'scissors')) {
 } else {
     return 'Something went wrong. Did you type a proper input?'
 }
-    
-}
 
-console.log(decideWinner());
+
+}
+console.log(rpsRound());
