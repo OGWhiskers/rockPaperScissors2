@@ -51,7 +51,7 @@ function rpsRound(playerSelection, computerChoice) {
         
 
     
-    } else if ((playerSelection === 'paper') && (computerChoice === 'scissor')) {
+    } else if ((playerSelection === 'paper') && (computerChoice === 'scissors')) {
         cpuScore++
         return 'You lose. Scissor beats Paper!'
         
@@ -64,25 +64,33 @@ function rpsRound(playerSelection, computerChoice) {
         return 'Something went wrong. Did you type a proper input?'
     }
     
-    };
+};
+    
+let game = () => {
 
-for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 5; i++) {
 
-    let computerChoice = getComputerChoice();
-    let playerSelection = getPlayerSelection();
+        let computerChoice = getComputerChoice();
+        let playerSelection = getPlayerSelection();
+    
+        console.log(rpsRound(playerSelection, computerChoice));
+        console.log(`Computer Score: ${cpuScore} + Player Score: ${playerScore}`);
+      
+    }
+    
+    if (playerScore > cpuScore) {
+        console.log('You Won!!!');
+    } else if (cpuScore > playerScore) {
+        console.log('You lost');
+    } else {
+        console.log('Is it a tie?');
+    }
 
-    console.log(rpsRound(playerSelection, computerChoice));
-    console.log(`Computer Score: ${cpuScore} + Player Score: ${playerScore}`);
-  
-}
+};
 
-if (playerScore > cpuScore) {
-    console.log('You Won!!!');
-} else if (cpuScore > playerScore) {
-    console.log('You lost');
-} else {
-    console.log('Is it a tie?');
-}
+game()
+
+
 
 
 
